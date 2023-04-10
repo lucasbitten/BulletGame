@@ -1,0 +1,56 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: O diretório intermediário (x64\Debug\) contém arquivos compartilhados de outro projeto (SFML Basic Template.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
+  Entity.cpp
+  EntityManager.cpp
+  SFML Template.cpp
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(90,144): warning C4244: 'argumento': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(90,99): warning C4244: 'argumento': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(130,147): warning C4244: 'argumento': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(130,102): warning C4244: 'argumento': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(146,36): warning C4244: 'argumento': conversão de 'int' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(146,29): warning C4244: 'argumento': conversão de 'int' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(192,25): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(192,22): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(192,19): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(214,25): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(214,22): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(214,19): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(237,6): warning C4101: 'a': variável local não referenciada
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(269,67): warning C4244: 'argumento': conversão de 'T' para 'unsigned int', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(269,53): warning C4244: 'argumento': conversão de 'T' para 'unsigned int', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(270,15): warning C4101: 'e': variável local não referenciada
+  Gerando Código...
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(222): warning C4715: 'loadRectanglesFromConfig': nem todos os caminhos de controle retornam um valor
+D:\C++\COMP4300\BulletGame\SFML Basic Template\SFML Template.cpp(198): warning C4715: 'loadCirclesFromConfig': nem todos os caminhos de controle retornam um valor
+  SFML Basic Template.vcxproj -> D:\C++\COMP4300\BulletGame\x64\Debug\BulletGame_d.exe

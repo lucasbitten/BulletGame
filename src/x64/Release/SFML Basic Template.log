@@ -1,0 +1,35 @@
+﻿  SFML Template.cpp
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(121,36): warning C4244: 'argumento': conversão de 'int' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(121,29): warning C4244: 'argumento': conversão de 'int' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(167,25): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(167,22): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(167,19): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(189,25): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(189,22): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(189,19): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(212,6): warning C4101: 'a': variável local não referenciada
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(248,67): warning C4244: 'argumento': conversão de 'T' para 'unsigned int', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(248,53): warning C4244: 'argumento': conversão de 'T' para 'unsigned int', possível perda de dados
+          with
+          [
+              T=float
+          ]
+D:\C++\SFML Basic Template\SFML Basic Template\SFML Template.cpp(249,15): warning C4101: 'e': variável local não referenciada
+  Gerando código
+  0 of 337 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finalizada a geração de código
+  SFML Basic Template.vcxproj -> D:\C++\SFML Basic Template\x64\Release\SFML Basic Template.exe
