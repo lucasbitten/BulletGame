@@ -2,17 +2,47 @@
   Game.cpp
 D:\C++\COMP4300\BulletGame\src\Game.cpp(46,30): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
 D:\C++\COMP4300\BulletGame\src\Game.cpp(46,23): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-D:\C++\COMP4300\BulletGame\src\Game.cpp(106,56): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
-D:\C++\COMP4300\BulletGame\src\Game.cpp(106,42): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(145,56): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(145,42): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
 D:\C++\COMP4300\BulletGame\src\Game.cpp(22,6): warning C4101: 'a': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,47): warning C4101: 'radius': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,10): warning C4101: 'xPos': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,44): warning C4101: 'b': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,16): warning C4101: 'yPos': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,41): warning C4101: 'g': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,30): warning C4101: 'ySpeed': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,38): warning C4101: 'r': variável local não referenciada
-D:\C++\COMP4300\BulletGame\src\Game.cpp(80,22): warning C4101: 'xSpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,47): warning C4101: 'radius': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,10): warning C4101: 'xPos': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,44): warning C4101: 'b': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,16): warning C4101: 'yPos': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,41): warning C4101: 'g': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,30): warning C4101: 'ySpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,38): warning C4101: 'r': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(83,22): warning C4101: 'xSpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,47): warning C4101: 'radius': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,10): warning C4101: 'xPos': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,44): warning C4101: 'b': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,16): warning C4101: 'yPos': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,41): warning C4101: 'g': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,30): warning C4101: 'ySpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,38): warning C4101: 'r': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(104,22): warning C4101: 'xSpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,47): warning C4101: 'radius': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,10): warning C4101: 'xPos': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,44): warning C4101: 'b': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,16): warning C4101: 'yPos': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,41): warning C4101: 'g': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,30): warning C4101: 'ySpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,38): warning C4101: 'r': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(127,22): warning C4101: 'xSpeed': variável local não referenciada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(226,65): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(226,41): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(227,65): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(227,41): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(235,64): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(235,154): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(236,16): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(236,8): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(235,109): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(235,19): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(382,135): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(383,147): warning C4244: 'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(545,70): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+D:\C++\COMP4300\BulletGame\src\Game.cpp(545,49): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(217,72): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(216,16): message : consulte a referência à instanciação '_Ty *std::construct_at<_Ty,int&,int&,sf::Color,sf::Color,int&,0x0>(_Ty *const ,int &,int &,sf::Color &&,sf::Color &&,int &) noexcept(<expr>)' do modelo que está sendo compilada
           with
@@ -34,7 +64,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.3193
           [
               _Ty=sf::Color
           ]
-D:\C++\COMP4300\BulletGame\src\Game.cpp(167,34): message : consulte a referência à instanciação 'std::shared_ptr<CShape> std::make_shared<CShape,int&,int&,sf::Color,sf::Color,int&>(int &,int &,sf::Color &&,sf::Color &&,int &)' do modelo que está sendo compilada
+D:\C++\COMP4300\BulletGame\src\Game.cpp(205,34): message : consulte a referência à instanciação 'std::shared_ptr<CShape> std::make_shared<CShape,int&,int&,sf::Color,sf::Color,int&>(int &,int &,sf::Color &&,sf::Color &&,int &)' do modelo que está sendo compilada
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,77): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(218,85): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(224,49): message : consulte a referência à instanciação '_Ty *std::construct_at<_Ty,int&,int&,sf::Color,sf::Color,int&,0x0>(_Ty *const ,int &,int &,sf::Color &&,sf::Color &&,int &) noexcept(false)' do modelo que está sendo compilada

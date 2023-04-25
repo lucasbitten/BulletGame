@@ -31,8 +31,8 @@ struct EnemyConfig {
 	int OutlineThickness;
 	int VerticesMax;
 	int VerticesMin;
-	int Lifespan;
-	int SI;
+	int SmallLifespan;
+	int SpawnInterval;
 	float SpeedMax;
 	float SpeedMin;
 };
@@ -60,7 +60,7 @@ private:
 	sf::RenderWindow		m_window;					// the window we will draw to
 	EntityManager			m_entities;					// vector of entities to maintain
 	sf::Font				m_font;						// the font we will use to draw
-	sf::Text				m_text;						// the score text to be drawn to the screen
+	sf::Text*				m_text;						// the score text to be drawn to the screen
 	PlayerConfig			m_playerConfig;
 	EnemyConfig				m_enemyConfig;
 	BulletConfig			m_bulletConfig;

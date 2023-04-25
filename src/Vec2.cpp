@@ -66,14 +66,30 @@ void Vec2::operator/=(const float val)
 
 float Vec2::dist(const Vec2& rhs) const
 {
-	return 0.0f;
+	return sqrt((x - rhs.x) * (x - rhs.x) + (y - rhs.y) * (y - rhs.y));
+}
+
+float Vec2::distSq(const Vec2& rhs) const
+{
+	return (x - rhs.x) * (x - rhs.x) + (y - rhs.y) * (y - rhs.y);
 }
 
 float Vec2::length() const
 {
-	return 0.0f;
+	return sqrt(x * x + y * y);
+}
+
+float Vec2::squaredLength() const
+{
+	return x * x + y * y;
 }
 
 void Vec2::normalize()
 {
+	float vecLength = length();
+	if (vecLength > 0)
+	{
+		x = x / vecLength;
+		y = y / vecLength;
+	}
 }
