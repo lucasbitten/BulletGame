@@ -89,6 +89,9 @@ private:
 	void spawnSmallEnemies(std::shared_ptr<Entity> entity);
 	void spawnBullet(std::shared_ptr<Entity> entity, const Vec2& moousePos);
 	void spawnSpecialWeapon(std::shared_ptr<Entity> entity);
+	void updateEnemyPositionByTag(const std::string& tag);
+	void handleEnemyCollisionByTag(const std::string& tag, bool instantiateSmallEnemies);
+
 
 public:
 

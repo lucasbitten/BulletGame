@@ -165,6 +165,7 @@ void Game::run()
 			sMovement();
 			sCollision();
 			sLifespan();
+
 		}
 
 		sUserInput();
@@ -176,6 +177,8 @@ void Game::run()
 		{
 			m_currentFrame++;
 		}
+
+
 	}
 }
 
@@ -244,12 +247,34 @@ void Game::spawnEnemy()
 // spawns the small enemies when a big one (input entity e) explodes 
 void Game::spawnSmallEnemies(std::shared_ptr<Entity> e)
 {
+	auto circle = e->cShape->circle;
+	auto angle = (3.14f / 180) * 360.0f / circle.getPointCount();
 	// TODO: spawn small enemies at the location of the input enemy e
-	// 
-	// when we create the smaller enemy, we have to read the values of the original enemy
-	// - spawn a number of small enemies equal to the vertices of the original enemy
-	// - set each small enemy to the same color as the original, half the size
-	// - small enem*/ies are worth double points of the original enemy
+	for (size_t i = 0; i < circle.getPointCount(); i++)
+	{
+		auto entity = m_entities.addEntity("smallEnemy");
+
+		Vec2 dimensions(m_window.getSize().x / 2.0f, m_window.getSize().y / 2.0f);
+
+		auto vertices = circle.getPointCount();
+		auto speedX = RandomRange(m_enemyConfig.SpeedMin, m_enemyConfig.SpeedMax);
+		auto speedY = RandomRange(m_enemyConfig.SpeedMin, m_enemyConfig.SpeedMax);
+
+		entity->cShape = std::make_shared<CShape>(circle.getRadius() * 0.5f, vertices,
+			sf::Color(circle.getFillColor()),
+			sf::Color(circle.getOutlineColor()),
+			circle.getOutlineThickness());
+
+		Vec2 dir = Vec2(cos(angle * i), sin(angle * i));
+		dir.normalize();
+
+		entity->cTransform = std::make_shared<CTransform>(
+			Vec2(e->cTransform->pos),
+			Vec2(speedX * dir.x, speedY * dir.y), 0.0f);
+
+		entity->cCollision = std::make_shared<CCollision>(e->cCollision->radius * 0.5f);
+		entity->cScore = std::make_shared<CScore>(e->cScore->score * 2);
+	}
 }
 
 // spawns a bullet from a given entity to a target location
@@ -278,7 +303,11 @@ void Game::spawnBullet(std::shared_ptr<Entity> entity, const Vec2& target)
 
 void Game::spawnSpecialWeapon(std::shared_ptr<Entity> entity)
 {
-	//TODO: implement your own special weapon
+	for (size_t i = 0; i < 10; i++)
+	{
+
+	}
+
 }
 
 
@@ -310,7 +339,7 @@ void Game::sMovement()
 
 	dir.normalize();
 	auto windowSize = m_window.getSize();
-
+	
 	m_player->cTransform->velocity = dir * m_playerConfig.Speed;
 
 	float radius = m_player->cShape->circle.getRadius();
@@ -338,7 +367,21 @@ void Game::sMovement()
 
 	m_player->cTransform->pos += m_player->cTransform->velocity;
 
-	for (auto& e : m_entities.getEntities("enemy"))
+	updateEnemyPositionByTag("enemy");
+	updateEnemyPositionByTag("smallEnemy");
+
+	for (auto& e : m_entities.getEntities("bullet"))
+	{
+		e->cTransform->pos += e->cTransform->velocity;
+	}
+
+}
+
+void Game::updateEnemyPositionByTag(const std::string& tag)
+{
+	auto windowSize = m_window.getSize();
+
+	for (auto& e : m_entities.getEntities(tag))
 	{
 		e->cTransform->pos += e->cTransform->velocity;
 		if (e->cTransform->pos.x > windowSize.x - e->cShape->circle.getRadius() || e->cTransform->pos.x < e->cShape->circle.getRadius())
@@ -350,15 +393,11 @@ void Game::sMovement()
 		{
 			e->cTransform->velocity.y = -e->cTransform->velocity.y;
 		}
-
 	}
-
-	for (auto& e : m_entities.getEntities("bullet"))
-	{
-		e->cTransform->pos += e->cTransform->velocity;
-	}
-
 }
+
+
+
 
 void Game::sLifespan()
 {
@@ -393,14 +432,21 @@ void Game::sLifespan()
 
 void Game::sCollision()
 {
+	handleEnemyCollisionByTag("enemy", true);
+	handleEnemyCollisionByTag("smallEnemy", false);
+
+}
+
+void Game::handleEnemyCollisionByTag(const std::string& tag, bool instantiateSmallEnemies)
+{
 	//todo: implement collision
 	// be sure to use collision radius, not the shape radius
 
-	for (auto& e : m_entities.getEntities("enemy"))
+	for (auto& e : m_entities.getEntities(tag))
 	{
 		auto dist = e->cTransform->pos.distSq(m_player->cTransform->pos);
 		auto radiusSum = m_player->cCollision->radius + e->cCollision->radius;
-		if(dist <= radiusSum * radiusSum)
+		if (dist <= radiusSum * radiusSum)
 		{
 			std::cout << "Player got hit" << std::endl;
 			e->destroy();
@@ -417,6 +463,10 @@ void Game::sCollision()
 
 				m_score += e->cScore->score;
 				m_text->setString("Score: " + std::to_string(m_score));
+				if (instantiateSmallEnemies)
+				{
+					spawnSmallEnemies(e);
+				}
 				e->destroy();
 				bullet->destroy();
 				continue;
@@ -425,6 +475,7 @@ void Game::sCollision()
 		}
 	}
 }
+
 
 void Game::sEnemySpanwer()
 {
@@ -447,16 +498,18 @@ void Game::sRender()
 
 	for (auto& e : m_entities.getEntities())
 	{
-		// set the position of the shape based on the entity's transform->pos
-		e->cShape->circle.setPosition(e->cTransform->pos.x, e->cTransform->pos.y);
+		if (e->cShape && e->cTransform)
+		{
+			// set the position of the shape based on the entity's transform->pos
+			e->cShape->circle.setPosition(e->cTransform->pos.x, e->cTransform->pos.y);
 
-		// set the rotation of the shape based on the entity's transform->angle
-		e->cTransform->angle += 1.0f;
-		e->cShape->circle.setRotation(e->cTransform->angle);
+			// set the rotation of the shape based on the entity's transform->angle
+			e->cTransform->angle += 1.0f;
+			e->cShape->circle.setRotation(e->cTransform->angle);
 
-		// draw the entity's sf::CircleShape 
-		m_window.draw(e->cShape->circle);
-
+			// draw the entity's sf::CircleShape 
+			m_window.draw(e->cShape->circle);
+		}
 	}
 	m_window.display();
 }
@@ -476,27 +529,97 @@ void Game::sUserInput()
 			m_running = false;
 		}
 
+		if (!m_paused)
+		{
+			// this event is triggered when a key is pressed
+			if (event.type == sf::Event::KeyPressed)
+			{
+				switch (event.key.code)
+				{
+				case sf::Keyboard::W:
+
+					m_player->cInput->up = true;
+					break;
+				case sf::Keyboard::S:
+
+					m_player->cInput->down = true;
+					break;
+				case sf::Keyboard::A:
+
+					m_player->cInput->left = true;
+					break;
+				case sf::Keyboard::D:
+					m_player->cInput->right = true;
+					break;
+				default:
+					break;
+				}
+			}
+
+			// this event is triggered when a key is released
+			if (event.type == sf::Event::KeyReleased)
+			{
+				switch (event.key.code)
+				{
+				case sf::Keyboard::W:
+
+					m_player->cInput->up = false;
+					break;
+				case sf::Keyboard::S:
+
+					m_player->cInput->down = false;
+					break;
+				case sf::Keyboard::A:
+
+					m_player->cInput->left = false;
+					break;
+				case sf::Keyboard::D:
+
+					m_player->cInput->right = false;
+					break;
+				default:
+					break;
+				}
+			}
+
+			if (event.type == sf::Event::MouseButtonPressed)
+			{
+				switch (event.key.code)
+				{
+				case sf::Mouse::Left:
+					m_player->cInput->shoot = true;
+					spawnBullet(m_player, Vec2(event.mouseButton.x, event.mouseButton.y));
+
+					break;
+				case sf::Mouse::Right:
+					spawnSpecialWeapon(m_player);
+					break;
+				default:
+					break;
+				}
+			}
+
+			if (event.type == sf::Event::MouseButtonReleased)
+			{
+				switch (event.key.code)
+				{
+				case sf::Mouse::Left:
+					m_player->cInput->shoot = false;
+
+					break;
+				default:
+					break;
+				}
+			}
+		}
 
 		// this event is triggered when a key is pressed
 		if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
-			case sf::Keyboard::W:
-
-				m_player->cInput->up = true;
-				break;
-			case sf::Keyboard::S:
-
-				m_player->cInput->down = true;
-				break;
-			case sf::Keyboard::A:
-
-				m_player->cInput->left = true;
-				break;
-			case sf::Keyboard::D:
-
-				m_player->cInput->right = true;
+			case sf::Keyboard::E:
+				spawnEnemy();
 				break;
 			case sf::Keyboard::P:
 				setPaused(!m_paused);
@@ -505,59 +628,6 @@ void Game::sUserInput()
 				exit(0);
 				break;
 
-			default:
-				break;
-			}
-		}
-
-		// this event is triggered when a key is released
-		if (event.type == sf::Event::KeyReleased)
-		{
-			switch (event.key.code)
-			{
-			case sf::Keyboard::W:
-
-				m_player->cInput->up = false;
-				break;
-			case sf::Keyboard::S:
-
-				m_player->cInput->down = false;
-				break;
-			case sf::Keyboard::A:
-
-				m_player->cInput->left = false;
-				break;
-			case sf::Keyboard::D:
-
-				m_player->cInput->right = false;
-				break;
-			default:
-				break;
-			}
-		}
-
-		if (event.type == sf::Event::MouseButtonPressed)
-		{
-			switch (event.key.code)
-			{
-			case sf::Mouse::Left:
-				m_player->cInput->shoot = true;
-				spawnBullet(m_player, Vec2(event.mouseButton.x, event.mouseButton.y));
-
-				break;
-			default:
-				break;
-			}
-		}
-
-		if (event.type == sf::Event::MouseButtonReleased)
-		{
-			switch (event.key.code)
-			{
-			case sf::Mouse::Left:
-				m_player->cInput->shoot = false;
-
-				break;
 			default:
 				break;
 			}
